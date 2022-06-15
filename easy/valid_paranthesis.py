@@ -21,14 +21,15 @@ def isValid(s: str) -> bool:
 		if sym == '{' or sym == '[' or sym == '(':
 			record.append(sym)    # O(1)
 		else:
-			if pairs[sym] == record[-1]:   
+			if len(record) > 1 and pairs[sym] == record[-1]:   
 				record.pop()    # O(1)
+			else:
+				return False
 
 	return len(record) == 0 
 	
 	
-print(isValid("{}[]([])"))
-
+print(isValid(")(){}"))
 
 
 # Time Complexity O(n)
