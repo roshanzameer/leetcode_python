@@ -21,7 +21,7 @@ def isValid(s: str) -> bool:
 		if sym == '{' or sym == '[' or sym == '(':
 			record.append(sym)    # O(1)
 		else:
-			if len(record) > 1 and pairs[sym] == record[-1]:   
+			if len(record) >= 1 and pairs[sym] == record[-1]:   
 				record.pop()    # O(1)
 			else:               # If its a closed paranthesis and no open pair already seen
 				return False
@@ -29,7 +29,21 @@ def isValid(s: str) -> bool:
 	return len(record) == 0 
 	
 	
-print(isValid(")(){}"))
-
+print(isValid("()[]{"))
 
 # Time Complexity O(n)
+
+
+
+
+def isvalid_alternate(s):
+
+	# Alternate Approach
+
+	for i in range(len(s) // 2):
+
+		s = s.replace('{}', '').replace('()', '').replace('[]', '')
+
+	return len(s) == 0
+
+print(isvalid_alternate("(("))
