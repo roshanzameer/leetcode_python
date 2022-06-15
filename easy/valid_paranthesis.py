@@ -23,7 +23,7 @@ def isValid(s: str) -> bool:
 		else:
 			if len(record) > 1 and pairs[sym] == record[-1]:   
 				record.pop()    # O(1)
-			else:
+			else:               # If its a closed paranthesis and no open pair already seen
 				return False
 
 	return len(record) == 0 
