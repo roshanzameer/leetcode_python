@@ -27,6 +27,7 @@ def removeElement(nums, val):
             nums[valid_size] = nums[i]  # O(1)
             valid_size += 1             # O(1)
 
+    print(nums)
     return valid_size
 
 
@@ -36,3 +37,26 @@ print(removeElement(nums = [0,1,2,2,3,0,4,2], val = 2))
 
 # TC: O(n)
 # SC: O(1)
+
+
+def remove_el(nums, val):
+        
+    left = 0
+    
+    for right in range(1, len(nums)):
+        
+        if nums[left] == val:
+            if nums[right] == val:
+                right += 1
+            nums[left] = nums[right]
+            left += 1
+            right+=1
+        
+        else:
+            left +=1
+            
+
+        print(left, right, nums)
+
+
+print(remove_el(nums = [0,1,2,2,3,0,4,2], val = 2))
