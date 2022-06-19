@@ -20,20 +20,51 @@ Explanation: The square root of 8 is 2.82842..., and since the decimal part is t
 
 
 def mySqrt(x):
-    low = 0
+    if x <= 1:
+        return x
+
+    low = 1
     high = x
     
-    while low < high:
+    while low <= high:
         mid = (low + high) // 2
-        
-        if mid * mid > x:
-            high = mid - 1
-            
-        if mid * mid < x:
-            low = mid + 1
-            
+
         if mid * mid == x:
             return mid
 
-    return low
-print(mySqrt(8))
+        elif mid * mid < x:
+            low = mid + 1
+            ans = mid
+
+        else:
+            high = mid - 1
+    # left=0
+    # right=x
+    # while left<=right:
+    #     mid=(left+right)//2
+    #     if mid*mid==x:
+    #         return mid
+    #     elif mid*mid>x:
+    #         right=mid-1
+    #     else:
+    #         left=mid+1
+            
+
+    return ans
+
+
+
+print(mySqrt(48))
+
+
+
+def sqrt(x):
+    index = 1
+    while index*index <= x:
+        index += 1
+    return index-1
+
+print(sqrt(48))
+
+
+# Bablylonion Algorithm: https://www.youtube.com/watch?v=RQmjgvWbMd8
