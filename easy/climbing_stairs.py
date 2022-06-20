@@ -23,6 +23,9 @@
 # 3. 2 steps + 1 step
 
 
+from re import A
+
+
 def climbStairs_recursion(n):
     """
     The pattern follows a fibonacci series. Hence can be done in 3 methods. 
@@ -51,7 +54,7 @@ def climbStair_bottom_up(n):
 
     return fib_map[n]
 
-print(climbStair_bottom_up(10))   # O(n),  T(N)
+print(climbStair_bottom_up(10))   # O(n),  S(N)
 
 
 
@@ -71,4 +74,29 @@ def climbStair_top_down(n):
 
     
 
-print(climbStair_top_down(10))   # # O(n), T(N)
+print(climbStair_top_down(10))   # # O(n), S(N)
+
+
+
+def climbStair(n):
+
+
+    if n <= 3:
+        return n
+
+    i = 2
+    j = 3
+
+    num = 4
+    while num <= n:
+        t = j
+        j = i + j
+        i = t
+
+        num += 1
+
+    return j
+
+    
+
+print(climbStair(10))   # O(n),  S(1)
